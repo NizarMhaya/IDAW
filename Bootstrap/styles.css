@@ -11,6 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+  --test-color: rgb(190, 0, 0);
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -42,8 +43,8 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 26, 188, 156;
-  --bs-secondary-rgb: 44, 62, 80;
+  --bs-primary-rgb: 255, 88, 21 ;
+  --bs-secondary-rgb: 190, 0, 0;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -10840,7 +10841,7 @@ html {
 @media (min-width: 992px) {
   .page-section .page-section-heading {
     font-size: 3rem;
-    margin-top: 1em; /*rajouté par moi pour décaler toute la page vers le bas sinon le bandeau cache un peu*/
+    margin-top: 10em; /*rajouté par moi pour décaler toute la page vers le bas sinon le bandeau cache un peu*/
   
     line-height: 2.5rem;
 
@@ -10901,7 +10902,7 @@ html {
   font-weight: 700;
 }
 #mainNav .navbar-brand {
-  color: #fff;
+  color: #fff; /*anciennement #fff*/
 }
 #mainNav .navbar-nav {
   margin-top: 1rem;
