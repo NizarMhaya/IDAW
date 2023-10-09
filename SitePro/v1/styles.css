@@ -36,4 +36,11 @@ h1 {
     margin: 10px;
 }
 
+#currentpage {
+    background-color: #ffcc00; /* Fond jaune pour le menu de la page actuelle */
+    color: #333; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
+}
+
+
 /* Ajoutez d'autres styles selon les éléments que vous souhaitez personnaliser */
