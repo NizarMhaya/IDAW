@@ -1,0 +1,39 @@
+/* styles.css */
+
+body {
+    background-color: #ffe28a; /* Gris clair */
+    color: #ffffff; /* Texte blanc */
+}
+
+header {
+    background-color: #000000; /* Jaune */
+    padding: 10px; /* Ajoute un espacement intérieur de 10 pixels au header */
+}
+
+h1 {
+    color: orange; /* Couleur orange pour tous les éléments <h1> */
+}
+
+.conteneur-flexible{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+    background-color: rgb(106, 106, 106); /*Bleu*/
+    width: 100%;
+    height: 200px;
+    border: 2px solid blue;
+    box-sizing: border-box;
+}
+
+.element-flexible{
+    flex: 1 1 50px;
+    background-color: rgb(221, 0, 0); /*Vert*/
+    width: 40%;
+    border: 2px solid rgb(128, 0, 0);
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+/* Ajoutez d'autres styles selon les éléments que vous souhaitez personnaliser */
