@@ -10840,7 +10840,10 @@ html {
 @media (min-width: 992px) {
   .page-section .page-section-heading {
     font-size: 3rem;
+    margin-top: 1em; /*rajouté par moi pour décaler toute la page vers le bas sinon le bandeau cache un peu*/
+  
     line-height: 2.5rem;
+
   }
 }
 
