@@ -1,6 +1,7 @@
 <?php
 require_once('template_pre_header.php');
 require_once('template_header.php'); //rajouter appel à la fonction rendertoHTML
+renderMenuToHTML($currentPageId)
 ?>
 
 <!-- Masthead-->

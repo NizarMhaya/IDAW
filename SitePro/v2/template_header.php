@@ -20,35 +20,20 @@
 
 <body id="page-top">
 
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">Nizar Mhaya</a>
-            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li id="currentpage" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="portfolio.php">Portfolio</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="about.php">About</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contact.php">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
 
 
     <?php
     function renderMenuToHTML($currentPageId)
     {
-        // un tableau qui d\'efinit la structure du site
+        // un tableau qui définit la structure du site
 
         $mymenu = array(
             // idPage titre
-            'index' => array('Accueil'),
-            'cv' => array('Cv'),
-            'projets' => array('Mes Projets')
+            'portfolio' => array('Portfolio'),
+            'about' => array('About'),
+            'contact' => array('Contact')
+
         );
         echo '<!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
@@ -61,11 +46,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">';
         // ...
-        //foreach($mymenu as $pageId => $pageParameters) {
-        echo '
-                <li id="currentpage" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="portfolio.php">Portfolio</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="about.php">About</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contact.php">Contact</a></li>';
+        foreach ($mymenu as $pageId => $pageParameters) {
+            if ($pageId == $currentPageId) {
+                echo '<li id = "currentpage" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= "' . $pageId . '.php">' . $pageParameters[0] . '</a></li>';
+            } else {
+                echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= "' . $pageId . '.php">' . $pageParameters[0] . '</a></li>';
+            }
+        }
 
         echo '</ul>
 </div>
