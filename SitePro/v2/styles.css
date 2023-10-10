@@ -12,7 +12,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --test-color: rgb(190, 0, 0);
+  --test-color: #f29b10;
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -12713,7 +12713,7 @@ html {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #1abc9c;
+  color: #ffff9b;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:active,
@@ -12878,9 +12878,9 @@ html {
 }
 
 #currentpage {
-  background-color: #ffcc00;
+  background-color: #f29b10;
   /* Fond jaune pour le menu de la page actuelle */
-  color: #333;
+  color: #000;
   /* Couleur du texte */
   font-weight: bold;
   /* Texte en gras */
