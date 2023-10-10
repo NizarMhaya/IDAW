@@ -1,4 +1,5 @@
 <?php
+require_once('template_menu.php');
 require_once('template_header.php'); //rajouter appel à la fonction rendertoHTML
 renderMenuToHTML('index')
 ?>
