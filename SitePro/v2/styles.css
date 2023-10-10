@@ -12876,3 +12876,12 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+#currentpage {
+  background-color: #ffcc00;
+  /* Fond jaune pour le menu de la page actuelle */
+  color: #333;
+  /* Couleur du texte */
+  font-weight: bold;
+  /* Texte en gras */
+}
