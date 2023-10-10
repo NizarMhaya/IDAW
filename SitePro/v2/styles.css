@@ -12618,7 +12618,7 @@ html {
 }
 
 .page-section {
-  padding: 0rem 0;
+  padding: 1rem 0;
 }
 
 .page-section .page-section-heading {
@@ -12633,6 +12633,7 @@ html {
     /*rajouté par moi pour décaler toute la page vers le bas sinon le bandeau cache un peu*/
 
     line-height: 2.5rem;
+    margin-top: 3.84em;
 
   }
 }
@@ -12643,6 +12644,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4em;
 }
 
 .divider-custom .divider-custom-line {

@@ -17,7 +17,7 @@ require_once('template_header.php');
         <!-- About Section Content-->
         <div class="row">
             <div class="col-lg-4 ms-auto">
-                <p class="lead">Nizar Mhaya est un petit génie comme on est voit rarement. Né dans la petite ville paisible de Clamart, Nizar était destiné à briller dès son plus jeune âge. Son incroyable intelligence et sa curiosité insatiable étaient évidentes pour tous ceux qui le connaissaient. Dès qu'il a commencé à parler, il posait des questions sur le monde qui l'entourait, montrant une soif inextinguible de connaissances.</p>
+                <p class="lead">Nizar Mhaya est un petit génie comme on en voit rarement. Né dans la petite ville paisible de Clamart, Nizar était destiné à briller dès son plus jeune âge. Son incroyable intelligence et sa curiosité insatiable étaient évidentes pour tous ceux qui le connaissaient. Dès qu'il a commencé à parler, il posait des questions sur le monde qui l'entourait, montrant une soif inextinguible de connaissances.</p>
             </div>
             <div class="col-lg-4 me-auto">
                 <p class="lead">En grandissant, Nizar a développé un intérêt particulier pour les sciences et la technologie. Il passait des heures à démonter et à réassembler des appareils électroniques, à coder des programmes informatiques sophistiqués et à explorer les mystères de l'univers. Ses talents en mathématiques étaient exceptionnels. Mais son imagination surpassait tout cela, comme le prouvent ces deux paragraphes fantasmagoriques.</p>
