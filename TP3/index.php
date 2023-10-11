@@ -25,16 +25,19 @@ if (isset($_GET['css'])) {
     if (isset($_COOKIE['selected_style'])) {
         // Applique le style stocké dans le cookie
         echo '<link rel="stylesheet" href="' . $_COOKIE['selected_style'] . '.css">';
+    } else {
+        echo '<link rel="stylesheet" href=" style1.css">'; // pour mettre un style par défaut si on a ni GET ni COOKIE
     }
     ?>
+
 </head>
 
 <body>
     <h1>Choisissez un style :</h1>
     <form id="style_form" action="index.php" method="GET">
         <select name="css">
-            <option value="style1">style1</option>
-            <option value="style2">style2</option>
+            <option value="style1">thème clair</option>
+            <option value="style2">thème sombre</option>
         </select>
         <input type="submit" value="Appliquer" />
     </form>
