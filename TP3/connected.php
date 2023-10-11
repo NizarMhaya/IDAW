@@ -24,6 +24,7 @@ if (!$successfullyLogged) {
     echo $errorText;
 } else {
     echo "<h1>Bienvenue " . $login . "</h1>";
+    echo "<h2>Votre mot de passe est : " . $tryPwd . "</h2>";
 }
 
 // Avec get :'URL est : http://localhost/IDAW/TP3/connected.php?login=Squeezie&password=yotoutlemonde
