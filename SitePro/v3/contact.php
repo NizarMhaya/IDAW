@@ -1,10 +1,3 @@
-<?php
-require_once('template_menu.php');
-require_once('template_header.php');
-renderMenuToHTML('contact')
-?>
-
-
 <!-- Contact Section-->
 <section class="page-section" id="contact">
     <div class="container">
@@ -78,13 +71,3 @@ renderMenuToHTML('contact')
         </div>
     </div>
 </section>
-
-
-<!-- Footer-->
-<?php
-require_once('template_footer.php');
-?>
-
-<?php
-require_once('template_copyright.php');
-?>

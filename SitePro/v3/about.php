@@ -1,10 +1,3 @@
-<?php
-require_once('template_menu.php');
-require_once('template_header.php');
-renderMenuToHTML('about')
-?>
-
-
 <!-- About Section-->
 <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
@@ -34,11 +27,3 @@ renderMenuToHTML('about')
         </div>
     </div>
 </section>
-
-<!-- Footer-->
-<?php
-require_once('template_footer.php');
-?>
-<?php
-require_once('template_copyright.php');
-?>
