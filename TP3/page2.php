@@ -25,7 +25,7 @@ if (isset($_SESSION['username'])) {
     <p>Cliquez sur le lien ci-dessous pour accéder à une autre page :</p>
 
     <!-- Lien vers une autre page (par exemple, page2.html) -->
-    <a href="connected.php">Aller à connected</a>
+    <a href="connectedoni.php">Aller à connected</a>
 </body>
 
 </html>
