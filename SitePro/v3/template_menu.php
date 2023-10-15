@@ -7,6 +7,7 @@ function renderMenuToHTML($currentPageId)
         // idPage titre
         'portfolio' => array('Portfolio'),
         'about' => array('About'),
+        'cv' => array('Cv'),
         'contact' => array('Contact')
 
     );
