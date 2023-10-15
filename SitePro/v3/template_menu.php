@@ -22,10 +22,11 @@ function renderMenuToHTML($currentPageId)
                     <ul class="navbar-nav ms-auto">';
     // ...
     foreach ($mymenu as $pageId => $pageParameters) {
+        $link = 'index.php?page=' . $pageId;
         if ($pageId == $currentPageId) {
-            echo '<li id = "currentpage" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= "' . $pageId . '.php">' . $pageParameters[0] . '</a></li>';
+            echo '<li id="currentpage" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="' . $link . '">' . $pageParameters[0] . '</a></li>';
         } else {
-            echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= "' . $pageId . '.php">' . $pageParameters[0] . '</a></li>';
+            echo '<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="' . $link . '">' . $pageParameters[0] . '</a></li>';
         }
     }
 
