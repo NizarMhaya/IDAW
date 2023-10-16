@@ -21,11 +21,11 @@
             </div>
             <!-- Footer About Text-->
             <div class="col-lg-4">
-                <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                <h4 class="text-uppercase mb-4">Language settings</h4>
                 <p class="lead mb-0">
-                    Freelance is a free to use, MIT licensed Bootstrap theme created by
-                    <a href="http://startbootstrap.com">Start Bootstrap</a>
-                    .
+                    Select your language here :
+                <p><a href="index.php?page=accueil&lang=fr">Français</a> | <a href="index.php?page=accueil&lang=en">English</a></p>
+                .
                 </p>
             </div>
         </div>
