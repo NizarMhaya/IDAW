@@ -10,7 +10,7 @@ echo '<!DOCTYPE html>
 <head>
     <title>Cours PHP / MySQL</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="cours.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>

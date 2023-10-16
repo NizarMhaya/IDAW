@@ -20,21 +20,24 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         <head>
             <title>Modifier Utilisateur</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="styles.css"> <!-- Lier le fichier CSS -->
         </head>
 
         <body>
-            <h1>Modifier Utilisateur</h1>
-            <form action="traitement_modifier.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $row->id; ?>"> <!-- Champ caché pour stocker l'ID de l'utilisateur à modifier -->
+            <div class="formulaire-modifier">
+                <h1>Modifier Utilisateur</h1>
+                <form action="traitement_modifier.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $row->id; ?>"> <!-- Champ caché pour stocker l'ID de l'utilisateur à modifier -->
 
-                <label for="name">Name :</label>
-                <input type="text" id="name" name="name" value="<?php echo $row->name; ?>" required><br> <!-- Affiche le nom de l'utilisateur -->
+                    <label for="name">Name :</label>
+                    <input type="text" id="name" name="name" value="<?php echo $row->name; ?>" required><br> <!-- Affiche le nom de l'utilisateur -->
 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" value="<?php echo $row->email; ?>" required><br> <!-- Affiche l'email de l'utilisateur -->
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" value="<?php echo $row->email; ?>" required><br> <!-- Affiche l'email de l'utilisateur -->
 
-                <input type="submit" value="Modifier">
-            </form>
+                    <input type="submit" value="Modifier">
+                </form>
         </body>
 
         </html>
