@@ -92,7 +92,7 @@
                                 <p class="mb-4">Ceci est une jolie maison.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
+                                    Fermer la fenêtre
                                 </button>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                                 <p class="mb-4">Les gateaux c'est délicieux.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
+                                    Fermer la fenêtre
                                 </button>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                                 <p class="mb-4">&#129313; &#129313; &#129313; &#129313; &#129313; &#129313; </p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
+                                    Fermer la fenêtre
                                 </button>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                                 <p class="mb-4">Le meilleur jeu vidéo de l'histoire est Age of Empires 2</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
+                                    Fermer la fenêtre
                                 </button>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
                                 <p class="mb-4">Là où je range l'entièreté de ma fortune &#40 67€ &#41</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
+                                    Fermer la fenêtre
                                 </button>
                             </div>
                         </div>
@@ -252,7 +252,7 @@
                                 <p class="mb-4">Le poisson le plus étrange que j'ai été amené à voir</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
+                                    Fermer la fenêtre
                                 </button>
                             </div>
                         </div>

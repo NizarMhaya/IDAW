@@ -21,9 +21,9 @@
             </div>
             <!-- Footer About Text-->
             <div class="col-lg-4">
-                <h4 class="text-uppercase mb-4">Language settings</h4>
+                <h4 class="text-uppercase mb-4">Paramètres de langue</h4>
                 <p class="lead mb-0">
-                    Select your language here :
+                    Choisissez votre langue ici :
                     <a href="index.php?page=accueil&lang=fr">Français</a> | <a href="index.php?page=accueil&lang=en">English</a>
                     .
                 </p>

@@ -89,7 +89,7 @@
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Ceci est une jolie maison.</p>
+                                <p class="mb-4">This is a pretty house.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -121,7 +121,7 @@
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Les gateaux c'est délicieux.</p>
+                                <p class="mb-4">Cakes are delicious.</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -175,7 +175,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Manette &lt; Clavier</h2>
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller &lt; Keyboard</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -185,7 +185,7 @@
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Le meilleur jeu vidéo de l'histoire est Age of Empires 2</p>
+                                <p class="mb-4">The best video game ever is Age of Empires 2</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -207,7 +207,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Le coffre dans ma cave</h2>
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">The safe in my cellar</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -217,7 +217,7 @@
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Là où je range l'entièreté de ma fortune &#40 67€ &#41</p>
+                                <p class="mb-4">Where i'm storing but entire wealth &#40 67€ &#41</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
@@ -249,7 +249,7 @@
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Le poisson le plus étrange que j'ai été amené à voir</p>
+                                <p class="mb-4">The funniest fish I got to see</p>
                                 <button class="btn btn-primary" data-bs-dismiss="modal">
                                     <i class="fas fa-xmark fa-fw"></i>
                                     Close Window
