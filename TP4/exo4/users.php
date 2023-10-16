@@ -23,18 +23,23 @@ echo '<!DOCTYPE html>
 // Affichage des résultats dans un tableau HTML
 echo "<h2>Résultats de la requête :</h2>";
 echo "<table border='1'>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>";
+<tr>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Email</th>
+    <th>Actions</th> <!-- Nouvelle colonne pour les boutons de modification et de suppression -->
+</tr>";
 
 while ($row = $request->fetch(PDO::FETCH_OBJ)) {
     echo "<tr>
-            <td>{$row->id}</td>
-            <td>{$row->name}</td>
-            <td>{$row->email}</td>
-          </tr>";
+    <td>{$row->id}</td>
+    <td>{$row->name}</td>
+    <td>{$row->email}</td>
+    <td>
+        <a href='modifier.php?id={$row->id}'>Modifier</a>
+        <a href='supprimer.php?id={$row->id}'>Supprimer</a>
+    </td>
+  </tr>";
 }
 
 echo "</table>";
