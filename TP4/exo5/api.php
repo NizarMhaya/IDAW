@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Gérer la méthode DELETE pour supprimer un utilisateur
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-    $inputData = json_decode(file_get_contents('php://input'), true);
-    $result = delete_user($pdo, $inputData);
+    // $inputData = json_decode(file_get_contents('php://input'), true);
+    $result = delete_user($pdo, $_GET);
     echo json_encode($result);
 }
 
@@ -96,3 +96,17 @@ function delete_user($pdo, $data)
 
 // Fermer la connexion à la base de données
 $pdo = null;
+
+// https://reqbin.com/
+// Pour tester la requête POST :
+//url : http://localhost/IDAW/TP4/exo5/api.php
+// content : mettre un json :
+// {
+//     "name": "Jean",
+//     "email": "Jean.michel@example.com"
+// }
+
+
+// Pour tester la requête DELTETE :
+// url dans reqbin : http://localhost/IDAW/TP4/exo5/api.php?id=35
+// Pas de Json a transmettre, toute l'info doit aller dans l'url
