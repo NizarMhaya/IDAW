@@ -217,6 +217,15 @@ $pdo = null;
 // content : mettre un json :
 // { "name": "Jean", "email": "Jean.michel@example.com" }
 
+// Pour tester la requête get qui utilise un id
+// url : http://localhost/IDAW/TP4/exo5/api.php?id=8
+// Ne necessite pas de json
+
+// Pour tester la requête get qui n'utilise pas un id et qui retourne tout le tableau
+// url : http://localhost/IDAW/TP4/exo5/api.php?
+// Ne necessite pas de json
+
+
 
 // Pour tester la requête DELETE :
 // url dans reqbin : http://localhost/IDAW/TP4/exo5/api.php?id=35
