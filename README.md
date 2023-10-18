@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: "API REST pour la gestion des utilisateurs"
   version: "1.0.0"
-  title: "Gestion des Utilisateurs API"
+  title: "Gestion des Utilisateurs"
 basePath: "/IDAW/TP4/exo5"
 schemes:
   - "http"
