@@ -1,7 +1,9 @@
 <!-- 
 GET /utilisateurs : Récupère tous les utilisateurs de la base de données.
 POST /utilisateurs : Crée un nouvel utilisateur dans la base de données.
-DELETE /utilisateurs : Supprime un utilisateur de la base de données en utilisant son ID. -->
+DELETE /utilisateurs : Supprime un utilisateur de la base de données en utilisant son ID.
+PUT /utilisateurs : Met à jour un utilisateur de la base de donnée.
+ -->
 
 
 <?php
@@ -19,15 +21,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inputData = json_decode(file_get_contents('php://input'), true);
     $result = create_user($pdo, $inputData);
-    echo json_encode($result);
+    // Vérifiez le résultat de la mise à jour
+    if (isset($result['message'])) {
+        http_response_code(200); // OK
+        echo json_encode($result);
+    } elseif (isset($result['error'])) {
+        http_response_code(400); // Bad Request ou tout autre code d'erreur approprié
+        echo json_encode($result);
+    } else {
+        http_response_code(500); // Erreur interne du serveur
+        echo json_encode(array("error" => "Une erreur inattendue s'est produite lors de la mise à jour de l'utilisateur."));
+    }
 }
 
 // Gérer la méthode DELETE pour supprimer un utilisateur
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-    // $inputData = json_decode(file_get_contents('php://input'), true);
+    // $inputData = json_decode(file_get_contents('php://input'), true); // Comme il n'y a pas cette ligne, on ne prend pas de json de l'utilisateur de l'API, tout est dans l'url en GET
     $result = delete_user($pdo, $_GET);
-    echo json_encode($result);
+    // Vérifiez le résultat de la mise à jour
+    if (isset($result['message'])) {
+        http_response_code(200); // OK
+        echo json_encode($result);
+    } elseif (isset($result['error'])) {
+        http_response_code(400); // Bad Request ou tout autre code d'erreur approprié
+        echo json_encode($result);
+    } else {
+        http_response_code(500); // Erreur interne du serveur
+        echo json_encode(array("error" => "Une erreur inattendue s'est produite lors de la mise à jour de l'utilisateur."));
+    }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    $inputData = json_decode(file_get_contents('php://input'), true);
+    $result = update_user($pdo, $inputData);
+
+    // Vérifiez le résultat de la mise à jour
+    if (isset($result['message'])) {
+        http_response_code(200); // OK
+        echo json_encode($result);
+    } elseif (isset($result['error'])) {
+        http_response_code(400); // Bad Request ou tout autre code d'erreur approprié
+        echo json_encode($result);
+    } else {
+        http_response_code(500); // Erreur interne du serveur
+        echo json_encode(array("error" => "Une erreur inattendue s'est produite lors de la mise à jour de l'utilisateur."));
+    }
+}
+
 
 // Fonction pour récupérer tous les utilisateurs
 function get_users($pdo)
@@ -56,7 +96,7 @@ function create_user($pdo, $data)
         $stmt->execute();
 
         // Retournez un message de succès
-        return array('message' => 'Nouvel utilisateur créé avec succès.');
+        return array('message' => 'Nouvel utilisateur cree avec succes.');
     } catch (PDOException $e) {
         // En cas d'erreur, retournez un message d'erreur
         return array('error' => 'Erreur lors de la création de l\'utilisateur : ' . $e->getMessage());
@@ -93,6 +133,39 @@ function delete_user($pdo, $data)
     }
 }
 
+function update_user($pdo, $data)
+{
+    $id = $data['id']; // Récupération de l'ID depuis les données d'entrée
+    $name = $data['name']; // Récupération du nom depuis les données d'entrée
+    $email = $data['email']; // Récupération de l'email depuis les données d'entrée
+
+    try {
+        // Préparez la requête SQL de mise à jour avec les champs "name" et "email"
+        $stmt = $pdo->prepare("UPDATE users SET name = :name, email = :email WHERE id = :id");
+
+        // Liez les valeurs des paramètres
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT); // Assurez-vous que l'ID est traité comme un entier
+
+        // Exécutez la requête
+        $stmt->execute();
+
+        // Vérifiez si la mise à jour a affecté des lignes (au moins une ligne a été mise à jour)
+        if ($stmt->rowCount() > 0) {
+            // La mise à jour a réussi, retournez un message de succès
+            return array('message' => 'Utilisateur mis à jour avec succès.');
+        } else {
+            // Aucune ligne n'a été mise à jour, l'utilisateur avec l'ID spécifié n'a pas été trouvé
+            return array('error' => 'Utilisateur non trouvé ou aucune mise à jour nécessaire.'); // remarque : ce message est renvoyé également si l'utilisateur existe mais que l'on met à jour avec le même mail et name
+        }
+    } catch (PDOException $e) {
+        // En cas d'erreur, retournez un message d'erreur
+        return array('error' => 'Erreur lors de la mise à jour de l\'utilisateur : ' . $e->getMessage());
+    }
+}
+
+
 
 // Fermer la connexion à la base de données
 $pdo = null;
@@ -101,12 +174,13 @@ $pdo = null;
 // Pour tester la requête POST :
 //url : http://localhost/IDAW/TP4/exo5/api.php
 // content : mettre un json :
-// {
-//     "name": "Jean",
-//     "email": "Jean.michel@example.com"
-// }
+// { "name": "Jean", "email": "Jean.michel@example.com" }
 
 
 // Pour tester la requête DELTETE :
 // url dans reqbin : http://localhost/IDAW/TP4/exo5/api.php?id=35
 // Pas de Json a transmettre, toute l'info doit aller dans l'url
+
+// Pour tester la requête PUT
+// url dans reqbin : http://localhost/IDAW/TP4/exo5/api.php?
+// Le json contient : { "id":31, "name": "Gui", "email": "Gui.Theuwb@example.com" }
