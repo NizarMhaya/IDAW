@@ -11,10 +11,42 @@ header('Content-Type: application/json'); // Définir le type de contenu JSON
 
 require_once('config.php');
 
-// Gérer la méthode GET pour récupérer tous les utilisateurs
+// // Gérer la méthode GET pour récupérer tous les utilisateurs
+// if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//     $users = get_users($pdo);
+//     echo json_encode($users);
+// }
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $users = get_users($pdo);
-    echo json_encode($users);
+    // Vérifiez s'il y a un paramètre d'URL "id"
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        // Récupérez l'identifiant de l'URL
+        $userId = $_GET['id'];
+
+        // Obtenez l'utilisateur par son identifiant
+        $user = get_user_by_id($pdo, $userId);
+
+        // Vérifiez si l'utilisateur a été trouvé
+        if ($user) {
+            http_response_code(200); // OK
+            echo json_encode($user);
+        } else {
+            http_response_code(404); // Not Found
+            echo json_encode(array('error' => 'Utilisateur non trouvé.'));
+        }
+    } else {
+        // Utilisez la fonction get_users pour obtenir tous les utilisateurs
+        $users = get_users($pdo);
+
+        // Vérifiez si des utilisateurs ont été trouvés
+        if ($users) {
+            http_response_code(200); // OK
+            echo json_encode($users);
+        } else {
+            http_response_code(404); // Not Found
+            echo json_encode(array('error' => 'Aucun utilisateur trouvé.'));
+        }
+    }
 }
 
 // Gérer la méthode POST pour créer un nouvel utilisateur
@@ -76,6 +108,15 @@ function get_users($pdo)
     $request->execute();
     $users = $request->fetchAll(PDO::FETCH_ASSOC);
     return $users;
+}
+// Fonction pour récupérer un utilisateur par son identifiant
+function get_user_by_id($pdo, $userId)
+{
+    $request = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+    $request->bindParam(':id', $userId, PDO::PARAM_INT);
+    $request->execute();
+    $user = $request->fetch(PDO::FETCH_ASSOC);
+    return $user;
 }
 
 // Fonction pour créer un nouvel utilisateur
@@ -177,7 +218,7 @@ $pdo = null;
 // { "name": "Jean", "email": "Jean.michel@example.com" }
 
 
-// Pour tester la requête DELTETE :
+// Pour tester la requête DELETE :
 // url dans reqbin : http://localhost/IDAW/TP4/exo5/api.php?id=35
 // Pas de Json a transmettre, toute l'info doit aller dans l'url
 
