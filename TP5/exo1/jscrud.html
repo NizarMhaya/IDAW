@@ -75,7 +75,8 @@
         <div class="form-group row">
             <span class="col-sm-2"></span>
             <div class="col-sm-2">
-                <button type="button" class="btn btn-primary form-control" id="submitButton">Submit</button>
+                <button type="button" class="btn btn-primary form-control" id="submitButton"
+                    style="display: block;">Submit</button>
                 <!--type="submit" : Lorsque ce bouton est cliqué à l'intérieur d'un formulaire, le formulaire est soumis au serveur pour traitement. Cela signifie que les données du formulaire sont envoyées au serveur pour être traitées par un script ou un programme. -->
                 <!--type="button" : Cela signifie que le bouton est un bouton ordinaire. Il n'a pas de comportement par défaut lorsqu'il est cliqué. Vous pouvez définir un comportement personnalisé en utilisant JavaScript-->
             </div>
@@ -137,12 +138,13 @@
                 // Pré-remplit le formulaire avec les données de la ligne du tableau
                 $("#inputNom").val(nom);
                 $("#inputPrenom").val(prenom);
-                $("#inputDateNaissance").val(dateNaissance);
+                $("#inputDateNaissance").val(dateNaissance); //semble récupéer les données mais ne les affiche pas dans le mini calendrier
                 $("#aimeLeCoursWeb").prop("checked", aimeLeCoursWeb);
-                $("#inputRemarques").val(dateNaissance);
+                $("#inputRemarques").val(remarques);
 
                 // Affiche le bouton "Enregistrer" pour appliquer les modifications
                 $("#saveButton").show();
+                $("#submitButton").hide();
 
                 // Gestionnaire d'événement pour le bouton "Enregistrer"
                 $("#saveButton").one("click", function (event) {
@@ -172,6 +174,7 @@
 
                     // Cache le bouton "Enregistrer" après l'édition
                     $("#saveButton").hide();
+                    $("#submitButton").show();
                 });
             });
 
