@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Gérer la méthode DELETE pour supprimer un utilisateur
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-    // $inputData = json_decode(file_get_contents('php://input'), true); // Comme il n'y a pas cette ligne, on ne prend pas de json de l'utilisateur de l'API, tout est dans l'url en GET
+    // $inputData = json_decode(file_get_contents('php://input'), true); // Comme il n'y a pas cette ligne, on ne prend pas de json de l'utilisateur de l'utilisateurs, tout est dans l'url en GET
     $result = delete_user($pdo, $_GET);
     // Vérifiez le résultat de la mise à jour
     if (isset($result['message'])) {
@@ -213,24 +213,24 @@ $pdo = null;
 
 // https://reqbin.com/
 // Pour tester la requête POST :
-//url : http://localhost/IDAW/TP4/exo5/api.php
+//url : http://localhost/IDAW/TP4/exo5/utilisateurs.php
 // content : mettre un json :
 // { "name": "Jean", "email": "Jean.michel@example.com" }
 
 // Pour tester la requête get qui utilise un id
-// url : http://localhost/IDAW/TP4/exo5/api.php?id=8
+// url : http://localhost/IDAW/TP4/exo5/utilisateurs.php?id=8
 // Ne necessite pas de json
 
 // Pour tester la requête get qui n'utilise pas un id et qui retourne tout le tableau
-// url : http://localhost/IDAW/TP4/exo5/api.php?
+// url : http://localhost/IDAW/TP4/exo5/utilisateurs.php?
 // Ne necessite pas de json
 
 
 
 // Pour tester la requête DELETE :
-// url dans reqbin : http://localhost/IDAW/TP4/exo5/api.php?id=35
+// url dans reqbin : http://localhost/IDAW/TP4/exo5/utilisateurs.php?id=35
 // Pas de Json a transmettre, toute l'info doit aller dans l'url
 
 // Pour tester la requête PUT
-// url dans reqbin : http://localhost/IDAW/TP4/exo5/api.php?
+// url dans reqbin : http://localhost/IDAW/TP4/exo5/utilisateurs.php?
 // Le json contient : { "id":31, "name": "Gui", "email": "Gui.Theuwb@example.com" }
