@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <title>tabletest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <style>
         body {
             margin-top: 5em;
@@ -76,6 +81,7 @@
             </div>
         </div>
     </form>
+    <button id="saveButton" style="display: none;">Enregistrer</button>
     <script>
         // approche de jQuery avec $(document).ready(function() {...}) est utilisée pour gérer l'événement de clic du bouton
         $(document).ready(function () {
@@ -100,8 +106,8 @@
         <td>${dateFormatted}</td>
         <td>${aimeLeCoursWeb ? 'Oui' : 'Non'}</td>
         <td>${remarques}</td>
-        <td></td>
-        <td></td>
+        <td><button class="btn btn-info btn-sm editBtn">Éditer</button></td>
+        <td><button class="btn btn-danger btn-sm deleteBtn">Supprimer</button></td>
     </tr>`);
                     //${aimeLeCoursWeb ? 'Oui' : 'Non'} est du JS et est un opérateur ternaire. Cela permet de créer une expression conditionnelle concise en fonction d'une condition.
 
@@ -115,6 +121,63 @@
                     // Affiche un message d'erreur si le champ nom est vide
                     alert("Le champ nom et la date de naissance sont obligatoires.");
                 }
+            });
+            // Gestionnaire d'événement pour le bouton "Éditer"
+            $("#studentsTableBody").on("click", ".editBtn", function () {
+                // Récupère la ligne du tableau correspondant au bouton "Éditer" cliqué
+                let row = $(this).closest("tr");
+
+                // Récupère les valeurs des cellules de la ligne du tableau
+                let nom = row.find("td:eq(0)").text();
+                let prenom = row.find("td:eq(1)").text();
+                let dateNaissance = row.data("dateNaissance");
+                let aimeLeCoursWeb = row.find("td:eq(3)").text() === "Oui";
+                let remarques = row.find("td:eq(4)").text();
+
+                // Pré-remplit le formulaire avec les données de la ligne du tableau
+                $("#inputNom").val(nom);
+                $("#inputPrenom").val(prenom);
+                $("#inputDateNaissance").val(dateNaissance);
+                $("#aimeLeCoursWeb").prop("checked", aimeLeCoursWeb);
+                $("#inputRemarques").val(dateNaissance);
+
+                // Affiche le bouton "Enregistrer" pour appliquer les modifications
+                $("#saveButton").show();
+
+                // Gestionnaire d'événement pour le bouton "Enregistrer"
+                $("#saveButton").one("click", function (event) {
+                    event.preventDefault();
+
+                    // Récupère les nouvelles valeurs du formulaire
+                    let newNom = $("#inputNom").val();
+                    let newPrenom = $("#inputPrenom").val();
+                    let newDateNaissance = $("#inputDateNaissance").val();
+                    let newAimeLeCoursWeb = $("#aimeLeCoursWeb").prop("checked");
+                    let newRemarques = $("#inputRemarques").val();
+
+                    // Modifie les cellules de la ligne du tableau avec les nouvelles valeurs
+                    row.find("td:eq(0)").text(newNom);
+                    row.find("td:eq(1)").text(newPrenom);
+                    // Met à jour l'attribut data avec la nouvelle date de naissance
+                    row.data("dateNaissance", newDateNaissance);
+                    row.find("td:eq(3)").text(newAimeLeCoursWeb ? 'Oui' : 'Non');
+                    row.find("td:eq(4)").text(newRemarques);
+
+                    // Réinitialise le formulaire
+                    $("#inputNom").val("");
+                    $("#inputPrenom").val("");
+                    $("#inputDateNaissance").val("");
+                    $("#aimeLeCoursWeb").prop("checked", false);
+                    $("#inputRemarques").val("");
+
+                    // Cache le bouton "Enregistrer" après l'édition
+                    $("#saveButton").hide();
+                });
+            });
+
+            $("#studentsTableBody").on("click", ".deleteBtn", function () {
+                // Logique pour la suppression d'une ligne du tableau
+                $(this).closest("tr").remove();
             });
         });
     </script>
