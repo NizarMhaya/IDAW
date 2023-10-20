@@ -217,11 +217,11 @@ $pdo = null;
 // content : mettre un json :
 // { "name": "Jean", "email": "Jean.michel@example.com" }
 
-// Pour tester la requête get qui utilise un id
+// Pour tester la requête GET qui utilise un id
 // url : http://localhost/IDAW/TP4/exo5/utilisateurs.php?id=8
 // Ne necessite pas de json
 
-// Pour tester la requête get qui n'utilise pas un id et qui retourne tout le tableau
+// Pour tester la requête GET qui n'utilise pas un id et qui retourne tout le tableau
 // url : http://localhost/IDAW/TP4/exo5/utilisateurs.php?
 // Ne necessite pas de json
 
