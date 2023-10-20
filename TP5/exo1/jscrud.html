@@ -52,6 +52,20 @@
                 <input type="date" class="form-control" id="inputDateNaissance" required>
             </div>
         </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Aime le cours Web</label>
+            <div class="col-sm-3">
+                <input type="checkbox" class="form-check-input" id="aimeLeCoursWeb">
+                <label class="form-check-label" for="aimeLeCoursWeb">Oui, j'aime le cours Web (et je suis un
+                    faillot)</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputRemarques" class="col-sm-2 col-form-label">Remarques*</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="inputRemarques" required>
+            </div>
+        </div>
         <!-- Ajoutez ici les autres champs du formulaire (prénom, date de naissance, etc.) -->
         <div class="form-group row">
             <span class="col-sm-2"></span>
@@ -73,6 +87,8 @@
                 let nom = $("#inputNom").val();
                 let prenom = $("#inputPrenom").val();
                 let dateNaissance = $("#inputDateNaissance").val();
+                let aimeLeCoursWeb = $("#aimeLeCoursWeb").prop("checked"); // Vérifie si la case à cocher est cochée
+                let remarques = $("#inputRemarques").val();
 
                 // Vérifie si les champ nom et date de naissance sont remplis avant d'ajouter une nouvelle ligne au tableau
                 if (nom.trim() !== "" && dateNaissance.trim() !== "") {
@@ -82,16 +98,19 @@
         <td>${nom}</td>
         <td>${prenom}</td>
         <td>${dateFormatted}</td>
-        <td></td>
-        <td></td>
+        <td>${aimeLeCoursWeb ? 'Oui' : 'Non'}</td>
+        <td>${remarques}</td>
         <td></td>
         <td></td>
     </tr>`);
+                    //${aimeLeCoursWeb ? 'Oui' : 'Non'} est du JS et est un opérateur ternaire. Cela permet de créer une expression conditionnelle concise en fonction d'une condition.
 
                     // Réinitialise le champ nom et le champs prénom après l'ajout
                     $("#inputNom").val("");
                     $("#inputPrenom").val("");
                     $("#inputDateNaissance").val("");
+                    $("#aimeLeCoursWeb").prop("checked", false);
+                    $("inputRemarques").val("");
                 } else {
                     // Affiche un message d'erreur si le champ nom est vide
                     alert("Le champ nom et la date de naissance sont obligatoires.");
