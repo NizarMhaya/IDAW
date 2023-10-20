@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <title>tabletest</title>
+    <style>
+        body {
+            margin-top: 5em;
+        }
+
+        .table {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Date de naissance</th>
+                <th scope="col">Aime le cours Web</th>
+                <th scope="col">Remarques</th>
+                <th scope="col">CRUD</th>
+            </tr>
+        </thead>
+        <tbody id="studentsTableBody">
+        </tbody>
+    </table>
+    <form id="addStudentForm">
+        <div class="form-group row">
+            <label for="inputNom" class="col-sm-2 col-form-label">Nom*</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="inputNom" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPrenom" class="col-sm-2 col-form-label">Prénom*</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="inputPrenom" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputDateNaissance" class="col-sm-2 col-form-label">Date de naissance*</label>
+            <div class="col-sm-3">
+                <input type="date" class="form-control" id="inputDateNaissance" required>
+            </div>
+        </div>
+        <!-- Ajoutez ici les autres champs du formulaire (prénom, date de naissance, etc.) -->
+        <div class="form-group row">
+            <span class="col-sm-2"></span>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-primary form-control" id="submitButton">Submit</button>
+                <!--type="submit" : Lorsque ce bouton est cliqué à l'intérieur d'un formulaire, le formulaire est soumis au serveur pour traitement. Cela signifie que les données du formulaire sont envoyées au serveur pour être traitées par un script ou un programme. -->
+                <!--type="button" : Cela signifie que le bouton est un bouton ordinaire. Il n'a pas de comportement par défaut lorsqu'il est cliqué. Vous pouvez définir un comportement personnalisé en utilisant JavaScript-->
+            </div>
+        </div>
+    </form>
+    <script>
+        // approche de jQuery avec $(document).ready(function() {...}) est utilisée pour gérer l'événement de clic du bouton
+        $(document).ready(function () {
+            $("#submitButton").click(function (event) {
+                // Empêche l'envoi du formulaire au serveur
+                event.preventDefault();
+
+                // Récupère la valeur des champs
+                let nom = $("#inputNom").val();
+                let prenom = $("#inputPrenom").val();
+                let dateNaissance = $("#inputDateNaissance").val();
+
+                // Vérifie si les champ nom et date de naissance sont remplis avant d'ajouter une nouvelle ligne au tableau
+                if (nom.trim() !== "" && dateNaissance.trim() !== "") {
+                    let dateFormatted = new Date(dateNaissance).toLocaleDateString('fr-FR');
+                    // Ajoute une nouvelle ligne au tableau avec le nom et le prénom
+                    $("#studentsTableBody").append(`<tr>
+        <td>${nom}</td>
+        <td>${prenom}</td>
+        <td>${dateFormatted}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>`);
+
+                    // Réinitialise le champ nom et le champs prénom après l'ajout
+                    $("#inputNom").val("");
+                    $("#inputPrenom").val("");
+                    $("#inputDateNaissance").val("");
+                } else {
+                    // Affiche un message d'erreur si le champ nom est vide
+                    alert("Le champ nom et la date de naissance sont obligatoires.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
