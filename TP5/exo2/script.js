@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    /*
     $("#addStudentForm").submit(function (event) {
         // Empêcher l'envoi du formulaire par défaut
         event.preventDefault();
@@ -28,4 +29,27 @@ $(document).ready(function () {
             }
         });
     });
+    */
 });
+
+function sendDataToServer(name, email) {
+
+    $.ajax({
+        type: "POST", // Utilisez la méthode POST pour envoyer des données
+        url: "http://localhost/IDAW/TP4/exo5/utilisateurs.php", // URL de votre API
+        data: JSON.stringify({
+            name: name,
+            email: email
+        }),
+        dataType: "json",
+        success: function (response) {
+            // Traitez la réponse du serveur si nécessaire
+            console.log("Réponse du serveur :" + response);
+        },
+        error: function (error) {
+            // Traitez les erreurs
+            console.error("Erreur :" + error);
+        }
+    });
+}
+

@@ -67,6 +67,7 @@
         </div>
     </form>
     <button type="button" id="saveButton" class="btn btn-primary " style="display: none;">Enregistrer</button>
+    <script src="script.js"></script>
     <script>
         // approche de jQuery avec $(document).ready(function() {...}) est utilisée pour gérer l'événement de clic du bouton
         $(document).ready(function () {
@@ -78,6 +79,8 @@
                 let id = $("#inputid").val();
                 let name = $("#inputname").val();
                 let email = $("#inputemail").val();
+                // Appelle la fonction pour envoyer les données au serveur
+                sendDataToServer(name, email);
                 // Ajoute une nouvelle ligne au tableau avec le id et le Name
                 $("#studentsTableBody").append(`<tr>
         <td>${id}</td>

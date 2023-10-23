@@ -1,12 +1,11 @@
-<!-- 
-GET /utilisateurs : Récupère tous les utilisateurs de la base de données.
-POST /utilisateurs : Crée un nouvel utilisateur dans la base de données.
-DELETE /utilisateurs : Supprime un utilisateur de la base de données en utilisant son ID.
-PUT /utilisateurs : Met à jour un utilisateur de la base de donnée.
- -->
-
-
 <?php
+
+// GET /utilisateurs : Récupère tous les utilisateurs de la base de données.
+// POST /utilisateurs : Crée un nouvel utilisateur dans la base de données.
+// DELETE /utilisateurs : Supprime un utilisateur de la base de données en utilisant son ID.
+// PUT /utilisateurs : Met à jour un utilisateur de la base de donnée.
+
+
 header('Content-Type: application/json'); // Définir le type de contenu JSON
 
 require_once('config.php');
