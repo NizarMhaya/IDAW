@@ -71,6 +71,7 @@
     <script>
         // approche de jQuery avec $(document).ready(function() {...}) est utilisée pour gérer l'événement de clic du bouton
         $(document).ready(function () {
+            getAllDataFromServer();
             $("#submitButton").click(function (event) {
                 // Empêche l'envoi du formulaire au serveur
                 event.preventDefault();
