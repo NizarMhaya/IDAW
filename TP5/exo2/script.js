@@ -104,8 +104,9 @@ function updateDataOnServer(idToUpdate, updatedData) {
         success: function (response) {
             console.log("Utilisateur mis à jour avec succès :", response);
         },
-        error: function (error) {
-            console.error("Erreur lors de la mise à jour de l'utilisateur :", error);
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.responseJSON ? xhr.responseJSON.error : 'Erreur inattendue côté serveur.';
+            alert('Erreur : ' + errorMessage); //accéder à la réponse renvoyée par le serveur en cas d'erreur (ou de succès) et de stocker cette réponse dans la variable xhr.responseJSON
         }
     });
 }
