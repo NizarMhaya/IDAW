@@ -98,19 +98,15 @@
             });
             // Gestionnaire d'événement pour le bouton "Éditer"
             $("#studentsTableBody").on("click", ".editBtn", function () {
-                // Récupère la ligne du tableau correspondant au bouton "Éditer" cliqué
-                let row = $(this).closest("tr");
+                // Récupère les données de la ligne du tableau pour l'utilisateur sélectionné
+                let idToUpdate = $(this).closest("tr").find("td:eq(0)").text();
+                let name = $(this).closest("tr").find("td:eq(1)").text();
+                let email = $(this).closest("tr").find("td:eq(2)").text();
 
-                // Récupère les valeurs des cellules de la ligne du tableau
-                let id = row.find("td:eq(0)").text();
-                let name = row.find("td:eq(1)").text();
-                let email = row.find("email");
-
-
-                // Pré-remplit le formulaire avec les données de la ligne du tableau
-                $("#inputid").val(id);
+                // Affiche les données de l'utilisateur dans les champs de saisie
+                $("#inputid").val(idToUpdate);
                 $("#inputname").val(name);
-                $("#inputemail").val(email); //semble récupéer les données mais ne les affiche pas dans le mini calendrier
+                $("#inputemail").val(email);
 
                 // Affiche le bouton "Enregistrer" pour appliquer les modifications
                 $("#saveButton").show();
@@ -125,13 +121,20 @@
                     let newname = $("#inputname").val();
                     let newemail = $("#inputemail").val();
 
+                    // Crée un objet avec les nouvelles données
+                    let updatedUserData = {
+                        "id": newid,
+                        "name": newname,
+                        "email": newemail
+                    };
+
+                    // Appel de la fonction pour mettre à jour les données sur le serveur
+                    updateDataOnServer(newid, updatedUserData);
 
                     // Modifie les cellules de la ligne du tableau avec les nouvelles valeurs
-                    row.find("td:eq(0)").text(newid);
-                    row.find("td:eq(1)").text(newname);
-                    // Met à jour l'attribut data avec la nouvelle Email
-                    row.data("email", newemail);
-
+                    $(this).closest("tr").find("td:eq(0)").text(newid);
+                    $(this).closest("tr").find("td:eq(1)").text(newname);
+                    $(this).closest("tr").find("td:eq(2)").text(newemail);
 
                     // Réinitialise le formulaire
                     $("#inputid").val("");

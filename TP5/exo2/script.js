@@ -95,3 +95,18 @@ function deleteDataFromServer(idToDelete) {
     });
 }
 
+function updateDataOnServer(idToUpdate, updatedData) {
+    $.ajax({
+        type: "PUT",
+        url: `http://localhost/IDAW/TP4/exo5/utilisateurs.php?id=${idToUpdate}`,
+        contentType: "application/json",
+        data: JSON.stringify(updatedData),
+        success: function (response) {
+            console.log("Utilisateur mis à jour avec succès :", response);
+        },
+        error: function (error) {
+            console.error("Erreur lors de la mise à jour de l'utilisateur :", error);
+        }
+    });
+}
+
