@@ -145,8 +145,17 @@
             });
 
             $("#studentsTableBody").on("click", ".deleteBtn", function () {
-                // Logique pour la suppression d'une ligne du tableau
-                $(this).closest("tr").remove();
+                // Gestionnaire d'événement pour le bouton "Supprimer"
+                $("#studentsTableBody").on("click", ".deleteBtn", function () {
+                    // Récupère l'ID de l'élément à supprimer à partir de la ligne du tableau
+                    let idToDelete = $(this).closest("tr").find("td:eq(0)").text();
+
+                    // Appel de la fonction pour supprimer les données du serveur
+                    deleteDataFromServer(idToDelete);
+
+                    // Supprimez la ligne du tableau côté client
+                    $(this).closest("tr").remove();
+                });
             });
         });
     </script>

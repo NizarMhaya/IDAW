@@ -82,3 +82,16 @@ function getAllDataFromServer() {
     });
 }
 
+function deleteDataFromServer(idToDelete) {
+    $.ajax({
+        type: "DELETE",
+        url: `http://localhost/IDAW/TP4/exo5/utilisateurs.php?id=${idToDelete}`,
+        success: function (response) {
+            console.log("Élément supprimé avec succès :", response);
+        },
+        error: function (error) {
+            console.error("Erreur lors de la suppression :", error);
+        }
+    });
+}
+
